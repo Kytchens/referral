@@ -14,9 +14,7 @@ export default function ReferralPage() {
   const [sharing, setSharing] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  const RECRUITMENT_URL = process.env.NEXT_PUBLIC_RECRUITMENT_URL ?? "https://jobs.kytchens.com";
-
-  const referralUrl = `${RECRUITMENT_URL}/?ref=${encodeURIComponent(name.trim())}${phone.trim() ? `&ref_phone=${encodeURIComponent(phone.trim())}` : ""}`;
+  const referralUrl = `https://kytchens-hiring-form.vercel.app/phase3?ref=${encodeURIComponent(name.trim())}${phone.trim() ? `&ref_phone=${encodeURIComponent(phone.trim())}` : ""}`;
 
   const isValidPhone = (p: string) => /^[6-9]\d{9}$/.test(p);
 
