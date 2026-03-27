@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import StepLayout from "@/components/StepLayout";
 import { useLanguage } from "@/lib/context/LanguageContext";
 import type { TranslationKey } from "@/lib/i18n";
@@ -164,17 +163,6 @@ export default function ReferralPage() {
             {t("referral_share_hint")}
           </p>
 
-          {/* Hiring Banner */}
-          <div className="rounded-xl overflow-hidden">
-            <Image
-              src="/hiring-banner.png"
-              alt="Kytchens Hiring"
-              width={600}
-              height={400}
-              className="w-full h-auto"
-            />
-          </div>
-
           {/* Referral link */}
           <div className="w-full mt-4 px-4 py-3 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15">
             <p className="text-[11px] text-text-secondary font-medium uppercase tracking-wider mb-1">
@@ -220,22 +208,6 @@ export default function ReferralPage() {
             </span>
           </button>
 
-          {/* Bonus Conditions */}
-          <div className="w-full mt-5 px-4 py-4 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15 text-left">
-            <h3 className="text-[15px] font-bold text-text mb-3">
-              {t("referral_bonus_title")}
-            </h3>
-            <div className="space-y-2 mb-4">
-              <p className="text-[13px] text-text leading-relaxed">{t("referral_bonus_1")}</p>
-              <p className="text-[13px] text-text leading-relaxed">{t("referral_bonus_2")}</p>
-            </div>
-            <ol className="list-decimal list-inside space-y-2 pt-3 border-t border-border">
-              <li className="text-[12px] text-text-secondary leading-relaxed">{t("referral_condition_1")}</li>
-              <li className="text-[12px] text-text-secondary leading-relaxed">{t("referral_condition_2")}</li>
-              <li className="text-[12px] text-text-secondary leading-relaxed">{t("referral_condition_3")}</li>
-              <li className="text-[12px] text-text-secondary leading-relaxed">{t("referral_condition_4")}</li>
-            </ol>
-          </div>
         </div>
       )}
     </StepLayout>
