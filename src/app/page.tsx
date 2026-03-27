@@ -13,7 +13,6 @@ export default function ReferralPage() {
   const [phoneError, setPhoneError] = useState(false);
   const [showCard, setShowCard] = useState(false);
   const [sharing, setSharing] = useState(false);
-  const [saved, setSaved] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const RECRUITMENT_URL = process.env.NEXT_PUBLIC_RECRUITMENT_URL ?? "https://jobs.kytchens.com";
@@ -22,28 +21,13 @@ export default function ReferralPage() {
 
   const isValidPhone = (p: string) => /^[6-9]\d{9}$/.test(p);
 
-  const handleGenerate = async () => {
+  const handleGenerate = () => {
     if (!name.trim()) return;
     if (phone.trim() && !isValidPhone(phone.trim())) {
       setPhoneError(true);
       return;
     }
     setPhoneError(false);
-
-    try {
-      await fetch("/api/referral", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          referrerName: name.trim(),
-          referrerPhone: phone.trim(),
-        }),
-      });
-      setSaved(true);
-    } catch {
-      // Continue even if save fails
-    }
-
     setShowCard(true);
   };
 
@@ -183,16 +167,6 @@ export default function ReferralPage() {
         </div>
       ) : (
         <div className="flex flex-col items-center text-center animate-fade-up">
-          {/* Success badge */}
-          {saved && (
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-success/10 border border-success/20 mb-3">
-              <span className="w-2 h-2 rounded-full bg-success" />
-              <span className="text-[12px] font-semibold text-success">
-                {t("ref_saved")}
-              </span>
-            </div>
-          )}
-
           <p className="text-[15px] text-text-secondary mb-4 font-medium">
             {t("referral_share_hint")}
           </p>
