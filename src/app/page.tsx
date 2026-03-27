@@ -166,10 +166,6 @@ export default function ReferralPage() {
         </div>
       ) : (
         <div className="flex flex-col items-center text-center animate-fade-up">
-          <p className="text-[15px] text-text-secondary mb-4 font-medium">
-            {t("referral_share_hint")}
-          </p>
-
           {/* Referral link */}
           <div className="w-full mt-4 px-4 py-3 rounded-xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/15">
             <p className="text-[11px] text-text-secondary font-medium uppercase tracking-wider mb-1">
@@ -201,19 +197,6 @@ export default function ReferralPage() {
             </span>
           </a>
 
-          {/* Share via other apps */}
-          <button
-            onClick={handleShare}
-            disabled={sharing}
-            className="w-full mt-3 flex items-center justify-center gap-2 px-4 py-4 rounded-xl border-[1.5px] border-primary text-primary hover:bg-primary/5 transition-colors disabled:opacity-70"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92-1.31-2.92-2.92-2.92z" />
-            </svg>
-            <span className="font-bold text-[15px]">
-              {sharing ? "..." : t("referral_share_btn")}
-            </span>
-          </button>
 
         </div>
       )}
