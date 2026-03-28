@@ -20,7 +20,7 @@ export default function ReferralPage() {
 
   const handleGenerate = () => {
     if (!name.trim()) return;
-    if (phone.trim() && !isValidPhone(phone.trim())) {
+    if (!phone.trim() || !isValidPhone(phone.trim())) {
       setPhoneError(true);
       return;
     }
@@ -153,7 +153,7 @@ export default function ReferralPage() {
             {/* CTA */}
             <button
               onClick={handleGenerate}
-              disabled={!name.trim()}
+              disabled={!name.trim() || !phone.trim()}
               className="w-full flex flex-col items-center justify-center px-4 py-4 rounded-xl btn-primary-gradient text-white disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span className="font-bold text-[17px]">
