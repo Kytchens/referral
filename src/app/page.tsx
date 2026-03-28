@@ -95,7 +95,7 @@ export default function ReferralPage() {
               {t("ref_how_title")}
             </p>
             <div className="space-y-2">
-              {([1, 2, 3] as const).map((n) => (
+              {([1, 2] as const).map((n) => (
                 <div key={n} className="flex items-start gap-2.5">
                   <span className="w-5 h-5 rounded-full bg-primary/15 text-primary text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
                     {n}
